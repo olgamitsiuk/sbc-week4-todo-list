@@ -21,7 +21,7 @@
                     <img src="./assets/img/search-icon.png" alt="">
                 </button>
             </div>
-            <div class="col-2 col-md-3 nav-item dropdown show color-white">
+            <div class="col-2 col-md-3 nav-item dropdown show color-white" id="dropdown">
                 <a class="nav-link btn-purple dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-toggle">
                   All
                 </a>
@@ -58,7 +58,24 @@
                 </div>
                 <div class="modal-footer border-top-0 justify-content-between">
                 <button type="button" class="btn-transparent px-4 color-purple" id="cancelNoteButton" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn-purple px-4 color-white" id="saveNoteButton">Save</button>
+                <button type="button" class="btn-purple px-4 color-white" id="saveNoteButton" data-bs-dismiss="modal">Save</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="modal fade" id="editNoteModal" tabindex="-1" aria-labelledby="editNoteModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                <h1 class="modal-title w-100 text-center fs-5 p-0" id="editNoteModalLabel">Edit note</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input class="edit-note-input border-purple" type="text" id="editNoteInput">
+                </div>
+                <div class="modal-footer border-top-0 justify-content-between">
+                <button type="button" class="btn-transparent px-4 color-purple" id="cancelEditNoteButton" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn-purple px-4 color-white" id="saveEditNoteButton" data-bs-dismiss="modal">Save</button>
                 </div>
             </div>
             </div>
