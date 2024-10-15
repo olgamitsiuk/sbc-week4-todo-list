@@ -14,14 +14,14 @@
     <main class="container">
         <div class="row">
         <h1 class="col-12">Todo list</h1>
-        <nav class="row navbar">
-            <div class="col-8 search-input-group pe-4">
+        <nav class="row navbar px-4">
+            <div class="col-10 col-md-9 search-input-group ps-4 ps-md-0 pe-0 pe-md-4">
                 <input type="text" class="form-control bg-light-mode search-input border-purple bottom-shadow" placeholder="Search..." aria-label="Search" id="search-input">
                 <button class="btn bg-light-mode search-button" type="button">
                     <img src="./assets/img/search-icon.png" alt="">
                 </button>
             </div>
-            <div class="col-3 nav-item dropdown color-white">
+            <div class="col-2 col-md-3 nav-item dropdown show color-white">
                 <a class="nav-link btn-purple dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-toggle">
                   All
                 </a>
@@ -31,16 +31,16 @@
                   <li><a class="dropdown-item" href="#" id="incomplete">Incomplete</a></li>
                 </ul>
               </div>
-            <div class="col-1 mode-button-group ps-4">
+            <!-- <div class="col-1 mode-button-group ps-4">
                 <button class="btn-purple mode-button" type="button">
                         <img src="./assets/img/night-mode-icon.png" alt="">
                 </button>
-            </div>  
+            </div>   -->
         </nav>
-        <ul id="noteList">
-            
-
-        </ul>
+        <div class="row">
+            <ul id="noteList" class="col-12 px-4 px-md-0">
+            </ul>
+        </div>
         <button class="btn-purple plus-button" type="button" data-bs-toggle="modal" data-bs-target="#newNoteModal">
             <img src="./assets/img/plus-icon.png" alt="">
         </button>

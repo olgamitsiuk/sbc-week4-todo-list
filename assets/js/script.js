@@ -5,7 +5,7 @@ let noteList = document.getElementById('noteList');
 let newNoteInput = document.getElementById('newNoteInput');
 let saveNoteButton = document.getElementById('saveNoteButton');
 let cancelNoteButton = document.getElementById('cancelNoteButton');
-let dropdaownToggle = document.getElementById('dropdown-toggle');
+let dropdownToggle = document.getElementById('dropdown-toggle');
 let searchInput = document.getElementById('search-input');
 let currentFilter = 'all';
 let currentSearch = '';
@@ -16,6 +16,19 @@ filters.forEach((filterItem) => {
         currentFilter = this.id;
         applyFilterAndSearch();
     });
+});
+
+const dropdown = dropdownToggle.closest('.dropdown');
+
+dropdownToggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    dropdown.classList.toggle('show');
+});
+
+document.addEventListener('click', function(e) {
+    if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('show');
+    }
 });
 
 function cancel() {
@@ -32,7 +45,7 @@ function save() {
         noteArray.push(newNote);
         localStorage.setItem('noteArray', JSON.stringify(noteArray));
         
-        applyFilter(currentFilter);
+        applyFilterAndSearch();
         
         const newNoteElement = noteList.lastElementChild;
         if (newNoteElement) {
@@ -60,15 +73,15 @@ function applyFilterAndSearch() {
     switch (currentFilter) {
         case 'complete':
             filteredNotes = filteredNotes.filter(note => note.checked);
-            dropdaownToggle.textContent = 'complete';
+            dropdownToggle.textContent = 'complete';
             break;
         case 'incomplete':
             filteredNotes = filteredNotes.filter(note => !note.checked);
-            dropdaownToggle.textContent = 'incomplete';
+            dropdownToggle.textContent = 'incomplete';
             break;
         default:
                 filteredNotes = noteArray;
-                dropdaownToggle.textContent = 'all';    
+                dropdownToggle.textContent = 'all';    
     }
     
     if (currentSearch) {
@@ -183,7 +196,11 @@ function updateNoteList(filteredNotes) {
             
         });
     } else {
-        noteList.innerHTML = `<img src="./assets/img/detective-check.png">`
+        noteList.innerHTML = `
+        <div class="col-12 h-100 pt-5 d-flex justify-content-center alighn-items-center" >
+            <img src="./assets/img/detective-check.png">
+        </div>
+        `
     }
 }
 applyFilterAndSearch();
