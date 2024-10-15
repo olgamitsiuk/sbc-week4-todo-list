@@ -348,4 +348,8 @@ input[type="text"]:focus-within {
         padding: 15px;
         text-align: center;
     }
+
+    .plus-button {
+        right: 40px;
+    }
 }
