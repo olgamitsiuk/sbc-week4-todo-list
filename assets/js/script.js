@@ -130,7 +130,7 @@ function updateNoteList(filteredNotes) {
             modal.setAttribute('tabindex', '-1');
             modal.setAttribute('aria-labelledby', `note${index}-modal-label`);
             modal.setAttribute('aria-hidden', 'true');
-
+            console.log(note.value)
             modal.innerHTML = `
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
@@ -139,7 +139,7 @@ function updateNoteList(filteredNotes) {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <input class="new-note-input border-purple" type="text" id="edit-note${index}-input" value=${note.value}>
+                                <input class="new-note-input border-purple" type="text" id="edit-note${index}-input" >
                             </div>
                             <div class="modal-footer border-top-0 justify-content-between">
                             <button type="button" class="btn-transparent px-4 color-purple" id="cancel-note${index}-button" data-bs-dismiss="modal">Cancel</button>
@@ -165,9 +165,11 @@ function updateNoteList(filteredNotes) {
             btnDelete.innerHTML = `<img src="./assets/img/delete-icon.png" alt="Delete">`;
 
             btnEdit.onclick = function() {
+                    let editInput = document.getElementById(`edit-note${index}-input`);
+                    editInput.value = note.value;
                     let saveNoteButton = document.getElementById(`save-note${index}-button`);
                     saveNoteButton.onclick = function() {
-                        let editInput = document.getElementById(`edit-note${index}-input`);
+                        
                         let editInputValue = editInput.value;
                         if(editInputValue) {
                           note.value = editInputValue;
